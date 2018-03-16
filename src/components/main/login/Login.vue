@@ -3,7 +3,7 @@
 	<body>
 		<div class="login_top">
 			<i class="iconfont">&#xe606;</i>
-			<span v-show="!ok">手机号快捷登录</span><span v-show="ok">账号密码登录</span>
+			<span>手机号快捷登录</span>
 		</div>
 		<div class="con_form">
 			<form action="">
@@ -23,44 +23,29 @@
 				</div>
 
 			</form>
-			<form action="">
-				<div class="phone">
-					<i class="iconfont">&#xe65f;</i>
-					<input type="text" placeholder="手机号" />
-					<span>获取验证码</span>
-				</div>
-				<div class="pwd">
-					<i class="iconfont">&#xe6e6;</i>
-					<input type="text" placeholder="密码" />
-				</div>
-				<p>首次用手机号登录将自动为您注册，并有豪礼相送。</p>
-				<button>登录</button>
-				<div class="b">
-					<b class="b1 btn1">手机号快捷登录</b><b class="b2">未收到验证码？</b>
-				</div>
-			</form>
 		</div>
 	</body>
 </template>
 
 <script>
-	import { setCookie, getCookie } from '../../../assets/cookie.js'
-//	import $ from "zepto"
 	import axios from "axios"
+	
 	export default {
 		name: 'Login',
-		data() {
+		data(){
 			return {
-				ok: true,
-				username: '',
-				pwd: ''
+				username:"",
+				pwd:""				
 			}
 		},
-		mounted(){
+		created(){
+			setCookie("usename","12345678900",20);
+			setCookie("psw","123456",20);
 			
-		}
-	
+		},
+		
 	}
+	
 </script>
 
 <style scoped="scoped">
