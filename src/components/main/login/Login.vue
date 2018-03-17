@@ -17,7 +17,7 @@
 					<input type="password" placeholder="短信验证码" v-model="pwd" id="inp2" />
 				</div>
 				<p>首次用手机号登录将自动为您注册，并有豪礼相送。</p>
-				<button @click="Login">登录</button>
+				<button @click="login()">登录</button>
 				<div class="b">
 					<b class="b1 btn1" @click='Toggle()'>账号密码登录</b><b class="b2">未收到验证码？</b>
 				</div>
@@ -28,24 +28,32 @@
 </template>
 
 <script>
-	import axios from "axios"
 	
+	import axios from "axios"
+
 	export default {
 		name: 'Login',
-		data(){
+		data() {
 			return {
-				username:"",
-				pwd:""				
+				username: "",
+				pwd: ""
+			}
+		},
+		methods:{
+			login(){
+				    if(  this.username == getCookie("username") &&  this.pwd == getCookie("pwd")){
+				    	
+				    }
+	       		}
+	       		
 			}
 		},
 		created(){
-			setCookie("usename","12345678900",20);
-			setCookie("psw","123456",20);
-			
-		},
-		
+			setCookie("usename","123"15);
+			setCookie("pwd","123"15);			
+		}
+
 	}
-	
 </script>
 
 <style scoped="scoped">
